@@ -44,12 +44,12 @@ echo self::aliyilmaz('safeContainer')->safeContainer($data);
 output:
 ```php
 // Source Code
-<img style="display:none;" src="foo.jpg" onload="something"/>
-    <img onmessage="javascript:foo()"><style>body{ background-color:#000;}</style>
-    <a notonmessage="nomatch-here">
-    <p><script></script>
-    things that are just onfoo="bar" shouldn't match either, outside of a tag
-    </p><iframe src=".."></iframe>
+<img src="foo.jpg" />
+<img >
+<a notonmessage="nomatch-here">
+<p>
+things that are just onfoo="bar" shouldn't match either, outside of a tag
+</p>
 ```
 
 ---
