@@ -34,8 +34,9 @@ class safeContainer extends Mind
 
         $rules = (!is_null($rule) AND !is_array($rule) AND in_array($rule, $rules)) ? array($rule) : $rules;
         
-        if(is_array($rule)) { if(in_array($rule, $rules)){ $rules = $rule; }}
-
+        if(is_array($rule)) { $newRules = [];
+            foreach ($rule as $r) { if(in_array($r, $rules)) $newRules[] = $r; } $rules = $newRules;
+        }
 
         if(!in_array('inlinejs', $rules)){
             $str = preg_replace('/(<.+?)(?<=\s)on[a-z]+\s*=\s*(?:([\'"])(?!\2).+?\2|(?:\S+?\(.*?\)(?=[\s>])))(.*?>)/i', "$1$3", $str);
